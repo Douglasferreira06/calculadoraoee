@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Meta</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    .container {
+        text-align: center;
+    }
+    input[type="number"] {
+        padding: 8px;
+        margin: 10px;
+        width: 200px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Calculadora de Meta</h2>
+    <label for="quilosPorHora">Quilos por Hora:</label>
+    <input type="number" id="quilosPorHora" placeholder="Insira a quantidade de quilos por hora"><br>
+    <button onclick="calcular()">Calcular</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function calcular() {
+        const quilosPorHora = document.getElementById("quilosPorHora").value;
+        const meta = 1200; // Meta em quilos por hora
+        const porcentagem = (quilosPorHora / meta) * 100;
+        const faltaParaMeta = meta - quilosPorHora;
+
+        const resultElement = document.getElementById("result");
+        resultElement.innerHTML = "Porcentagem da meta atingida: " + porcentagem.toFixed(2) + "%<br>";
+        resultElement.innerHTML += "Falta para atingir a meta: " + (faltaParaMeta > 0 ? faltaParaMeta + " quilos" : "Meta atingida ou excedida");
+    }
+</script>
+
+</body>
+</html>
